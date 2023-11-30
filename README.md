@@ -1,4 +1,4 @@
-# Tokopedia Devcamp 2022 Server and Database
+# Tokopedia Devcamp 2023 Server and Database
 
 ## How to Start the whole project?
 
@@ -13,7 +13,7 @@ docker-compose up -d
 Please refer to each folder for a more detailed code structure.
 
 ```
-devcamp-2022-snd
+devcamp-2023-snd
  ├── db                     # Database Configuration
  ├── service                # Backend HTTP Service Code        
  └── docker-compose.yml
