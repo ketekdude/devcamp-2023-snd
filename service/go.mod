@@ -1,4 +1,4 @@
-module github.com/classified5/devcamp-2022-snd/service
+module github.com/ketekdude/devcamp-2023-snd/service
 
 go 1.17
 

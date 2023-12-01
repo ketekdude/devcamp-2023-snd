@@ -2,15 +2,15 @@ package main
 
 import (
 	"log"
-	"net/http"
-	"time"
+	"net"
 
-	"github.com/gorilla/mux"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 
-	"github.com/classified5/devcamp-2022-snd/service/database"
-	"github.com/classified5/devcamp-2022-snd/service/server"
-	shipperHandler "github.com/classified5/devcamp-2022-snd/service/server/handlers/shipper"
-	"github.com/classified5/devcamp-2022-snd/service/shippermodule"
+	"github.com/ketekdude/devcamp-2023-snd/service/database"
+	shipperHandler "github.com/ketekdude/devcamp-2023-snd/service/server/handlers/shipper"
+	pb "github.com/ketekdude/devcamp-2023-snd/service/server/handlers/shipper/proto"
+	"github.com/ketekdude/devcamp-2023-snd/service/shippermodule"
 )
 
 func main() {
@@ -18,8 +18,8 @@ func main() {
 		User:     "postgres",
 		Password: "12345",
 		DBName:   "devcamp",
-		Port:     5432,
-		Host:     "db",
+		Port:     5433,
+		Host:     "127.0.0.1",
 		SSLMode:  "disable",
 	}
 
@@ -35,21 +35,20 @@ func main() {
 	log.Println("Initializing Handler")
 	sh := shipperHandler.NewShipperHandler(sm)
 
-	router := mux.NewRouter()
-
-	// REST Handlers
-	router.HandleFunc("/shipper", sh.AddShipperHandler).Methods(http.MethodPost)
-	router.HandleFunc("/shipper/{id}", sh.UpdateShipperHandler).Methods(http.MethodPut)
-	router.HandleFunc("/shipper/{id}", sh.GetShipperHandler).Methods(http.MethodGet)
-	router.HandleFunc("/shippers", sh.GetShipperAllHandler).Methods(http.MethodGet)
-	router.HandleFunc("/", sh.RootHandler).Methods(http.MethodGet)
-
-	serverConfig := server.Config{
-		WriteTimeout: 5 * time.Second,
-		ReadTimeout:  5 * time.Second,
-		Port:         9090,
+	lis, err := net.Listen("tcp", ":9000")
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
 	}
-	log.Println("Devcamp-2022-snd shipper service service is starting...")
 
-	server.Serve(serverConfig, router)
+	grpcServer := grpc.NewServer()
+	pb.RegisterShipperServer(grpcServer, sh)
+
+	// register server using reflection
+	reflection.Register(grpcServer)
+
+	log.Println("Devcamp-2023-snd shipper service service is starting...")
+
+	if err := grpcServer.Serve(lis); err != nil {
+		log.Fatalf("failed to serve: %s", err)
+	}
 }

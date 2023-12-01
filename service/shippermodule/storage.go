@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"log"
 
-	m "github.com/classified5/devcamp-2022-snd/service/model"
+	m "github.com/ketekdude/devcamp-2023-snd/service/model"
 )
 
 type storage struct {
@@ -96,8 +96,6 @@ func (s *storage) UpdateShipper(ctx context.Context, id int64, param m.ShipperRe
 		param.ImageURL,
 		param.Description,
 		param.MaxWeight,
-		param.CreatedAt,
-		param.CreatedBy,
 		param.UpdatedAt,
 		param.UpdatedBy,
 		id,
@@ -114,7 +112,7 @@ func (s *storage) UpdateShipper(ctx context.Context, id int64, param m.ShipperRe
 	}
 	if rowsAffected == 0 {
 		log.Println("[ShipperModule][UpdateShipper] no rows affected in db")
-		return 
+		return
 	}
 
 	result.ID = id

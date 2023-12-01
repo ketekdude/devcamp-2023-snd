@@ -1,6 +1,8 @@
 package shipper
 
-import "github.com/classified5/devcamp-2022-snd/service/shippermodule"
+import (
+	"github.com/ketekdude/devcamp-2023-snd/service/shippermodule"
+)
 
 type InsertShipperResponse struct {
 	ID int64 `json:"id"`

@@ -15,6 +15,6 @@ Please refer to each folder for a more detailed code structure.
 ```
 devcamp-2023-snd
  ├── db                     # Database Configuration
- ├── service                # Backend HTTP Service Code        
+ ├── service                # Backend gRPC Service Code        
  └── docker-compose.yml
 ```
