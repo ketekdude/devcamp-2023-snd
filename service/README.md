@@ -31,6 +31,5 @@ service
               └─ shipper     # gRPC Handler for shipper service
                    └─ proto  # gRPC Protobuf for shipper service
  ├── shippermodule           # Business Logic
- ├── main.go                 # Service Initalization
- └── Dockerfile              # Dockerfile to build the database image
+ └── main.go                 # Service Initalization
 ```
