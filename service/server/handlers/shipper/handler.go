@@ -52,3 +52,8 @@ func (p *Handler) GetShipper(ctx context.Context, in *pb.GetShipperReq) (resp *p
 	}
 	return
 }
+
+func (p *Handler) DeleteShipper(ctx context.Context, in *pb.DeleteShipperReq) (resp *pb.DeleteShipperResp, err error) {
+
+	return
+}

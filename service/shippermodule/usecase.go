@@ -59,3 +59,7 @@ func (p *Module) UpdateShipper(ctx context.Context, id int64, data m.ShipperRequ
 
 	return
 }
+
+func (p *Module) DeleteShipper(ctx context.Context, id int64, data m.ShipperRequest) (result m.ShipperResponse, err error) {
+	return
+}

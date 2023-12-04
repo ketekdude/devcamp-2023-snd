@@ -6,6 +6,7 @@ option go_package = "./service/server/handlers/shipper/proto";
 service Shipper{
     rpc AddShipper(AddShipperReq) returns (AddShipperResp) {}
     rpc GetShipper(GetShipperReq) returns (GetShipperResp) {}
+    rpc DeleteShipper(DeleteShipperReq) returns (DeleteShipperResp) {}
 }
 
 message AddShipperReq{
@@ -38,4 +39,13 @@ message ShipperData {
 	int32 CreatedBy = 7;
     int32 UpdatedAt = 8;
     int32 UpdatedBy = 9;
+}
+
+message DeleteShipperReq {
+    int64 ID = 1;
+}
+
+message DeleteShipperResp {
+    int64 ID = 1;
+    string message = 2;
 }
