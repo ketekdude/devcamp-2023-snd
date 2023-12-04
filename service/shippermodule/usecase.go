@@ -3,8 +3,9 @@ package shippermodule
 import (
 	"context"
 	"log"
+	"time"
 
-	m "github.com/classified5/devcamp-2022-snd/service/model"
+	m "github.com/ketekdude/devcamp-2023-snd/service/model"
 )
 
 func (p *Module) AddShipper(ctx context.Context, data m.ShipperRequest) (result m.ShipperResponse, err error) {
@@ -23,13 +24,18 @@ func (p *Module) AddShipper(ctx context.Context, data m.ShipperRequest) (result 
 	return
 }
 
-func (p *Module) GetShipper(ctx context.Context, id int64) (result m.ShipperResponse, err error) {
-	result, err = p.Storage.GetShipper(ctx, id)
-	if err != nil {
-		log.Println("[ShipperModule][GetShipper] problem getting storage data, err: ", err.Error())
-		return
+func (p *Module) GetShipper(ctx context.Context, id int64) (result []m.ShipperResponse, err error) {
+	if id != 0 {
+		var res m.ShipperResponse
+		res, err = p.Storage.GetShipper(ctx, id)
+		if err != nil {
+			log.Println("[ShipperModule][GetShipper] problem getting storage data, err: ", err.Error())
+			return
+		}
+		result = append(result, res)
+	} else {
+		result, err = p.GetShipperAll(ctx)
 	}
-
 	return
 }
 
@@ -44,6 +50,7 @@ func (p *Module) GetShipperAll(ctx context.Context) (result []m.ShipperResponse,
 }
 
 func (p *Module) UpdateShipper(ctx context.Context, id int64, data m.ShipperRequest) (result m.ShipperResponse, err error) {
+	data.UpdatedAt = time.Now()
 	result, err = p.Storage.UpdateShipper(ctx, id, data)
 	if err != nil {
 		log.Println("[ShipperModule][UpdateShipper] problem getting storage data, err: ", err.Error())

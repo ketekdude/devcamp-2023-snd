@@ -53,10 +53,8 @@ const (
 		image_url=$2,
 		description=$3,
 		max_weight=$4,
-		created_at=$5,
-		created_by=$6,
-		updated_at=$7,
-		updated_by=$8
+		updated_at=$5,
+		updated_by=$6
 	WHERE
 		id=$9
 	returning id	

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	m "github.com/classified5/devcamp-2022-snd/service/model"
+	m "github.com/ketekdude/devcamp-2023-snd/service/model"
 )
 
 func SanitizeInsert(param m.ShipperRequest) (m.ShipperRequest, error) {
@@ -27,13 +27,8 @@ func SanitizeInsert(param m.ShipperRequest) (m.ShipperRequest, error) {
 	if param.CreatedBy == 0 {
 		param.CreatedBy = 99999
 	}
-	if param.UpdatedAt.IsZero() {
-		param.UpdatedAt = time.Now()
-	}
-	if param.UpdatedBy == 0 {
-		param.UpdatedBy = 99999
-	}
-
+	param.UpdatedAt = time.Time{}
+	param.UpdatedBy = 0
 	return param, nil
 }
 
@@ -73,7 +68,7 @@ func BuildQuery(id int64, param m.ShipperRequest) (finalQuery string, fieldValue
 	}
 
 	fieldQuery += fmt.Sprintf("updated_at=$%d,", i)
-	fieldValues = append(fieldValues, param.UpdatedAt)
+	fieldValues = append(fieldValues, time.Now())
 	i++
 
 	finalQuery = fmt.Sprintf(updateShipperQuery, fieldQuery[:len(fieldQuery)-1], id)

@@ -1,0 +1,41 @@
+syntax = "proto3";
+package product;
+
+option go_package = "./service/server/handlers/shipper/proto";
+
+service Shipper{
+    rpc AddShipper(AddShipperReq) returns (AddShipperResp) {}
+    rpc GetShipper(GetShipperReq) returns (GetShipperResp) {}
+}
+
+message AddShipperReq{
+    string Name = 1;
+	string ImageURL = 2;
+	string Description = 3;
+	int32 MaxWeight = 4;
+	int32 CreatedBy = 5;
+}
+
+message AddShipperResp {
+    int64 ID = 1;
+    string Message = 2;
+}
+
+message GetShipperReq{
+    int64 ID = 1;
+}
+message GetShipperResp {
+    repeated ShipperData Data = 1;
+    string Message = 2;
+}
+message ShipperData {
+    int64 ID = 1;
+    string Name = 2;
+	string ImageURL = 3;
+	string Description = 4;
+	int32 MaxWeight = 5;
+    int32 CreatedAt = 6;
+	int32 CreatedBy = 7;
+    int32 UpdatedAt = 8;
+    int32 UpdatedBy = 9;
+}
