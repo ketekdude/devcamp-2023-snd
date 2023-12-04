@@ -60,9 +60,5 @@ const (
 	returning id	
 `
 
-	deleteShipperQuery = `
-	DELETE FROM shipper
-	WHERE
-	id=$1
-`
+	deleteShipperQuery = ``
 )

@@ -46,6 +46,5 @@ message DeleteShipperReq {
 }
 
 message DeleteShipperResp {
-    int64 ID = 1;
-    string message = 2;
+    string message = 1;
 }
