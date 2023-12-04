@@ -46,7 +46,7 @@ func main() {
 	// register server using reflection
 	reflection.Register(grpcServer)
 
-	log.Println("Devcamp-2023-snd shipper service service is starting...")
+	log.Println("Devcamp-2023-snd shipper service service is starting on port: 9000...")
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)
