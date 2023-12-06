@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/lib/pq v1.10.7
-	google.golang.org/grpc v1.59.0
+	google.golang.org/grpc v1.57.2
 	google.golang.org/protobuf v1.31.0
 )
 
