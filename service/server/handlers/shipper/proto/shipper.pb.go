@@ -371,6 +371,100 @@ func (x *ShipperData) GetUpdatedBy() int32 {
 	return 0
 }
 
+type DeleteShipperReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID int64 `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *DeleteShipperReq) Reset() {
+	*x = DeleteShipperReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteShipperReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteShipperReq) ProtoMessage() {}
+
+func (x *DeleteShipperReq) ProtoReflect() protoreflect.Message {
+	mi := &file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteShipperReq.ProtoReflect.Descriptor instead.
+func (*DeleteShipperReq) Descriptor() ([]byte, []int) {
+	return file_service_server_handlers_shipper_proto_shipper_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *DeleteShipperReq) GetID() int64 {
+	if x != nil {
+		return x.ID
+	}
+	return 0
+}
+
+type DeleteShipperResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=Message,proto3" json:"Message,omitempty"`
+}
+
+func (x *DeleteShipperResp) Reset() {
+	*x = DeleteShipperResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteShipperResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteShipperResp) ProtoMessage() {}
+
+func (x *DeleteShipperResp) ProtoReflect() protoreflect.Message {
+	mi := &file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteShipperResp.ProtoReflect.Descriptor instead.
+func (*DeleteShipperResp) Descriptor() ([]byte, []int) {
+	return file_service_server_handlers_shipper_proto_shipper_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *DeleteShipperResp) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
 var File_service_server_handlers_shipper_proto_shipper_proto protoreflect.FileDescriptor
 
 var file_service_server_handlers_shipper_proto_shipper_proto_rawDesc = []byte{
@@ -415,19 +509,29 @@ var file_service_server_handlers_shipper_proto_shipper_proto_rawDesc = []byte{
 	0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x18, 0x08, 0x20, 0x01, 0x28, 0x05,
 	0x52, 0x09, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x55,
 	0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x42, 0x79, 0x18, 0x09, 0x20, 0x01, 0x28, 0x05, 0x52, 0x09,
-	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x42, 0x79, 0x32, 0x8b, 0x01, 0x0a, 0x07, 0x53, 0x68,
-	0x69, 0x70, 0x70, 0x65, 0x72, 0x12, 0x3f, 0x0a, 0x0a, 0x41, 0x64, 0x64, 0x53, 0x68, 0x69, 0x70,
-	0x70, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x41, 0x64,
-	0x64, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x17, 0x2e, 0x70, 0x72,
-	0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72,
-	0x52, 0x65, 0x73, 0x70, 0x22, 0x00, 0x12, 0x3f, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x53, 0x68, 0x69,
-	0x70, 0x70, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x47,
-	0x65, 0x74, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x17, 0x2e, 0x70,
-	0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65,
-	0x72, 0x52, 0x65, 0x73, 0x70, 0x22, 0x00, 0x42, 0x29, 0x5a, 0x27, 0x2e, 0x2f, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x68, 0x61, 0x6e, 0x64,
-	0x6c, 0x65, 0x72, 0x73, 0x2f, 0x73, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x2f, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x42, 0x79, 0x22, 0x22, 0x0a, 0x10, 0x44, 0x65, 0x6c,
+	0x65, 0x74, 0x65, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x12, 0x0e, 0x0a,
+	0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x49, 0x44, 0x22, 0x2d, 0x0a,
+	0x11, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x12, 0x18, 0x0a, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0xd5, 0x01, 0x0a,
+	0x07, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x12, 0x3f, 0x0a, 0x0a, 0x41, 0x64, 0x64, 0x53,
+	0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x2e, 0x41, 0x64, 0x64, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x17,
+	0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x68, 0x69, 0x70,
+	0x70, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x22, 0x00, 0x12, 0x3f, 0x0a, 0x0a, 0x47, 0x65, 0x74,
+	0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x12, 0x16, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63,
+	0x74, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a,
+	0x17, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x68, 0x69,
+	0x70, 0x70, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x22, 0x00, 0x12, 0x48, 0x0a, 0x0d, 0x44, 0x65,
+	0x6c, 0x65, 0x74, 0x65, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x12, 0x19, 0x2e, 0x70, 0x72,
+	0x6f, 0x64, 0x75, 0x63, 0x74, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x68, 0x69, 0x70,
+	0x70, 0x65, 0x72, 0x52, 0x65, 0x71, 0x1a, 0x1a, 0x2e, 0x70, 0x72, 0x6f, 0x64, 0x75, 0x63, 0x74,
+	0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x53, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x22, 0x00, 0x42, 0x29, 0x5a, 0x27, 0x2e, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x65, 0x72, 0x2f, 0x68, 0x61, 0x6e, 0x64, 0x6c, 0x65, 0x72,
+	0x73, 0x2f, 0x73, 0x68, 0x69, 0x70, 0x70, 0x65, 0x72, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -442,22 +546,26 @@ func file_service_server_handlers_shipper_proto_shipper_proto_rawDescGZIP() []by
 	return file_service_server_handlers_shipper_proto_shipper_proto_rawDescData
 }
 
-var file_service_server_handlers_shipper_proto_shipper_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_service_server_handlers_shipper_proto_shipper_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_service_server_handlers_shipper_proto_shipper_proto_goTypes = []interface{}{
-	(*AddShipperReq)(nil),  // 0: product.AddShipperReq
-	(*AddShipperResp)(nil), // 1: product.AddShipperResp
-	(*GetShipperReq)(nil),  // 2: product.GetShipperReq
-	(*GetShipperResp)(nil), // 3: product.GetShipperResp
-	(*ShipperData)(nil),    // 4: product.ShipperData
+	(*AddShipperReq)(nil),     // 0: product.AddShipperReq
+	(*AddShipperResp)(nil),    // 1: product.AddShipperResp
+	(*GetShipperReq)(nil),     // 2: product.GetShipperReq
+	(*GetShipperResp)(nil),    // 3: product.GetShipperResp
+	(*ShipperData)(nil),       // 4: product.ShipperData
+	(*DeleteShipperReq)(nil),  // 5: product.DeleteShipperReq
+	(*DeleteShipperResp)(nil), // 6: product.DeleteShipperResp
 }
 var file_service_server_handlers_shipper_proto_shipper_proto_depIdxs = []int32{
 	4, // 0: product.GetShipperResp.Data:type_name -> product.ShipperData
 	0, // 1: product.Shipper.AddShipper:input_type -> product.AddShipperReq
 	2, // 2: product.Shipper.GetShipper:input_type -> product.GetShipperReq
-	1, // 3: product.Shipper.AddShipper:output_type -> product.AddShipperResp
-	3, // 4: product.Shipper.GetShipper:output_type -> product.GetShipperResp
-	3, // [3:5] is the sub-list for method output_type
-	1, // [1:3] is the sub-list for method input_type
+	5, // 3: product.Shipper.DeleteShipper:input_type -> product.DeleteShipperReq
+	1, // 4: product.Shipper.AddShipper:output_type -> product.AddShipperResp
+	3, // 5: product.Shipper.GetShipper:output_type -> product.GetShipperResp
+	6, // 6: product.Shipper.DeleteShipper:output_type -> product.DeleteShipperResp
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -529,6 +637,30 @@ func file_service_server_handlers_shipper_proto_shipper_proto_init() {
 				return nil
 			}
 		}
+		file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteShipperReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_service_server_handlers_shipper_proto_shipper_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteShipperResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -536,7 +668,7 @@ func file_service_server_handlers_shipper_proto_shipper_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_service_server_handlers_shipper_proto_shipper_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -564,6 +696,7 @@ const _ = grpc.SupportPackageIsVersion6
 type ShipperClient interface {
 	AddShipper(ctx context.Context, in *AddShipperReq, opts ...grpc.CallOption) (*AddShipperResp, error)
 	GetShipper(ctx context.Context, in *GetShipperReq, opts ...grpc.CallOption) (*GetShipperResp, error)
+	DeleteShipper(ctx context.Context, in *DeleteShipperReq, opts ...grpc.CallOption) (*DeleteShipperResp, error)
 }
 
 type shipperClient struct {
@@ -592,10 +725,20 @@ func (c *shipperClient) GetShipper(ctx context.Context, in *GetShipperReq, opts 
 	return out, nil
 }
 
+func (c *shipperClient) DeleteShipper(ctx context.Context, in *DeleteShipperReq, opts ...grpc.CallOption) (*DeleteShipperResp, error) {
+	out := new(DeleteShipperResp)
+	err := c.cc.Invoke(ctx, "/product.Shipper/DeleteShipper", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ShipperServer is the server API for Shipper service.
 type ShipperServer interface {
 	AddShipper(context.Context, *AddShipperReq) (*AddShipperResp, error)
 	GetShipper(context.Context, *GetShipperReq) (*GetShipperResp, error)
+	DeleteShipper(context.Context, *DeleteShipperReq) (*DeleteShipperResp, error)
 }
 
 // UnimplementedShipperServer can be embedded to have forward compatible implementations.
@@ -607,6 +750,9 @@ func (*UnimplementedShipperServer) AddShipper(context.Context, *AddShipperReq) (
 }
 func (*UnimplementedShipperServer) GetShipper(context.Context, *GetShipperReq) (*GetShipperResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetShipper not implemented")
+}
+func (*UnimplementedShipperServer) DeleteShipper(context.Context, *DeleteShipperReq) (*DeleteShipperResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteShipper not implemented")
 }
 
 func RegisterShipperServer(s *grpc.Server, srv ShipperServer) {
@@ -649,6 +795,24 @@ func _Shipper_GetShipper_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Shipper_DeleteShipper_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteShipperReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ShipperServer).DeleteShipper(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/product.Shipper/DeleteShipper",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ShipperServer).DeleteShipper(ctx, req.(*DeleteShipperReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Shipper_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "product.Shipper",
 	HandlerType: (*ShipperServer)(nil),
@@ -660,6 +824,10 @@ var _Shipper_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetShipper",
 			Handler:    _Shipper_GetShipper_Handler,
+		},
+		{
+			MethodName: "DeleteShipper",
+			Handler:    _Shipper_DeleteShipper_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
